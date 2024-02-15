@@ -1,0 +1,13 @@
+#nav-links {
+  display: flex;
+  align-items: center;
+}
+
+#nav-links h3 {
+  color: white;
+  text-align: center;
+  /* padding-right: 20%; */
+  margin: 0;
+  flex: 1;  
+  /* Add flex property to expand to fill available space */ 
+}

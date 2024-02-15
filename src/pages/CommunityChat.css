@@ -1,0 +1,41 @@
+
+
+.question-thread, .reply-thread {
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 20px;
+}
+
+.reply-thread {
+  padding-left: 30px;
+}
+/* Add this CSS to your project's stylesheet */
+
+.question-input {
+  width: 70%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.post-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.post-button:hover {
+  background-color: #0056b3;
+}
+
+.emoji{
+    color:blue;
+}
