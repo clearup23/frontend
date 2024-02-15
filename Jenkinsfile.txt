@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo("checkout successful")
+            }
+        }
+
+        stage('Build') {
+            steps {
+                script {
+                     echo("Build successful")
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                script {
+                    echo("Test successful")
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                script {
+                    echo("Deploy successful")
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build and deployment successful!'
+        }
+
+        failure {
+            echo 'Build or deployment failed!'
+        }
+
+        always {
+            echo 'This will always run.'
+        }
+    }
+}
