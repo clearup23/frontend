@@ -107,6 +107,7 @@ export default function AddUser() {
                     <option value="">Select Role</option>
                     <option value="student">Student</option>
                     <option value="teacher">Teacher</option>
+                    <option value="teacher">Teacher</option>
                   </select>
                 </div>
                 {role === "teacher" && (
