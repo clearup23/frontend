@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const ChangePassword = () => {
+  const remoteurl = "https://13.233.229.57/";
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -12,14 +13,11 @@ const ChangePassword = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:8082/updatePassword",
-        {
+      const response = await axios.post("${remoteurl}updatePassword", {
         //   email: email,
-          currentPassword: newPassword,
-          newPassword: confirmPassword,
-        }
-      );
+        currentPassword: newPassword,
+        newPassword: confirmPassword,
+      });
       if (response.status === 200) {
         alert("Password Updated successfully");
         // setEmail("");
@@ -35,43 +33,45 @@ const ChangePassword = () => {
   };
 
   return (
-    <div className="bodyy"> <div className="change-password-container">
-      <h3>Change Password</h3>
-      <form onSubmit={handleSubmit}>
+    <div className="bodyy">
+      {" "}
+      <div className="change-password-container">
+        <h3>Change Password</h3>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="newPassword">Current Password:</label>
+            <input
+              type="password"
+              id="newPassword"
+              name="newPassword"
+              placeholder="password sent in mail"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="confirmPassword">New Password:</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Enter a new password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            <p className="error-message">{passwordError}</p>
+          </div>
+          <div className="form-group">
+            <button type="submit">Reset Password</button>
+          </div>
+        </form>
         <div className="form-group">
-          <label htmlFor="newPassword">Current Password:</label>
-          <input
-            type="password"
-            id="newPassword"
-            name="newPassword"
-            placeholder="password sent in mail"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-          />
+          <span>
+            <Link to="/Signin">Login Here</Link>
+          </span>
         </div>
-        <div className="form-group">
-          <label htmlFor="confirmPassword">New Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            placeholder="Enter a new password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-          <p className="error-message">{passwordError}</p>
-        </div>
-        <div className="form-group">
-          <button type="submit">Reset Password</button>
-        </div>
-      </form>
-      <div className="form-group">
-        <span>
-          <Link to="/Signin">Login Here</Link>
-        </span>
       </div>
-    </div></div>
-   
+    </div>
   );
 };
 

@@ -7,11 +7,12 @@ const AuthPage = (props) => {
   const [email, setEmail] = useState();
   const [first_name, setFirstName] = useState();
   const [last_name, setLastName] = useState();
+  const remoteurl = "https://13.233.229.57/";
 
   const onLogin = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8082/chatlogin", { username, secret })
+      .post("${remoteurl}chatlogin", { username, secret })
       .then((r) => props.onAuth({ ...r.data, secret })) // NOTE: over-ride secret
       .catch((e) => console.log(JSON.stringify(e.response.data)));
   };
@@ -19,7 +20,7 @@ const AuthPage = (props) => {
   const onSignup = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8082/chatsignup", {
+      .post("${remoteurl}chatsignup", {
         username,
         secret,
         email,

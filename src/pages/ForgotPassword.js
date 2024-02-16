@@ -6,6 +6,8 @@ import axios from "axios";
 import "./ForgotPassword.css";
 
 const ForgotPassword = () => {
+  const remoteurl = "https://13.233.229.57/";
+
   const [user] = useState("");
   const [email, setEmail] = useState("");
   const [otp, setOtp] = useState("");
@@ -15,18 +17,14 @@ const ForgotPassword = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const Navigate = useNavigate;
-  
+
   const sendOTP = async () => {
     try {
-      const response = await axios.get(
-        `http://localhost:8082/checkEmailExists/${email}`
-      );
+      const response = await axios.get(`${remoteurl}checkEmailExists/${email}`);
       const data = response.data;
       console.log(data);
       if (data.exists) {
-        const otpResponse = await axios.get(
-          `http://localhost:8082/otp/${email}`
-        );
+        const otpResponse = await axios.get(`${remoteurl}otp/${email}`);
         if (otpResponse.status === 200) {
           alert("OTP Sent to " + email + " Successfully");
           setOtp(otpResponse.data.otp);
@@ -45,14 +43,11 @@ const ForgotPassword = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post(
-        "http://localhost:8082/updatePassword",
-        {
-          email: email,
-          currentPassword: newPassword,
-          newPassword: confirmPassword,
-        }
-      );
+      const response = await axios.post("${remoteurl}updatePassword", {
+        email: email,
+        currentPassword: newPassword,
+        newPassword: confirmPassword,
+      });
       if (response.status === 200) {
         alert("Password Updated successfully");
         setEmail("");
@@ -71,7 +66,7 @@ const ForgotPassword = () => {
     e.preventDefault();
 
     axios
-      .post(`http://localhost:8082/verifyOtp/${email}`, {
+      .post(`${remoteurl}verifyOtp/${email}`, {
         otp: otp,
       })
       .then((response) => {

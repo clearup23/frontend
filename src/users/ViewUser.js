@@ -8,6 +8,7 @@ export default function ViewUser() {
     username: "",
     email: "",
   });
+  const remoteurl = "https://13.233.229.57/";
 
   const { id } = useParams();
 
@@ -16,7 +17,7 @@ export default function ViewUser() {
   }, []);
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:8080/user/${id}`);
+    const result = await axios.get(`${remoteurl}user/${id}`);
     setUser(result.data);
   };
 

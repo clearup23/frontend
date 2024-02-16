@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../layout/Navbar";
-import {useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useUser } from "../users/UserContext"; // Assuming you have a user context
 
 export default function Admin() {
   const [users, setUsers] = useState([]);
   const { userDetails } = useUser(); // Get user details from context
   const navigate = useNavigate();
+  const remoteurl = "https://13.233.229.57/";
 
   const { id } = useParams();
 
@@ -21,12 +22,12 @@ export default function Admin() {
   }, []);
 
   const loadUsers = async () => {
-    const result = await axios.get("http://localhost:8082/users");
+    const result = await axios.get("${remoteurl}users");
     setUsers(result.data);
   };
 
   const deleteUser = async (id) => {
-    await axios.delete(`http://localhost:8082/user/${id}`);
+    await axios.delete(`${remoteurl}user/${id}`);
     loadUsers();
   };
   const openDocument = (url) => {

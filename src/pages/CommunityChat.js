@@ -5,6 +5,8 @@ import axios from "axios";
 import "./CommunityChat.css"; // Import CSS file
 
 const DiscussionComponent = () => {
+  const remoteurl = "https://13.233.229.57/";
+
   const [questions, setQuestions] = useState([]);
   const [replies, setReplies] = useState("");
   const { userDetails } = useUser();
@@ -17,13 +19,11 @@ const DiscussionComponent = () => {
   const fetchQuestions = async () => {
     console.log("rendersssssss");
     try {
-      const response = await axios.get(
-        "http://localhost:8082/api/questions/question"
-      );
+      const response = await axios.get("${remoteurl}api/questions/question");
       const responseWithReply = await Promise.all(
         response.data.map(async (question) => {
           const reply = await axios.get(
-            `http://localhost:8082/api/replies/${question.id}`
+            `${remoteurl}api/replies/${question.id}`
           );
           return {
             ...question,
@@ -42,7 +42,7 @@ const DiscussionComponent = () => {
     console.log("redfdfdf");
     console.log(replies);
     try {
-      const response = await axios.post("http://localhost:8082/api/replies", {
+      const response = await axios.post("${remoteurl}api/replies", {
         content: replies,
         user: { id: userDetails.id },
         question: { id: questionId },
@@ -69,7 +69,7 @@ const DiscussionComponent = () => {
       console.log(newQuestion);
       try {
         const response = await axios.post(
-          "http://localhost:8082/api/questions",
+          "${remoteurl}api/questions",
           {
             content: newQuestion,
             user: {

@@ -16,6 +16,7 @@ export default function AddUser() {
   });
 
   const { name, email, password, role, document, subject, otp } = user;
+  const remoteurl = "https://13.233.229.57/";
 
   const onInputChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -24,7 +25,7 @@ export default function AddUser() {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8082/user", {
+      await axios.post("${remoteurl}user", {
         ...user,
       });
 
