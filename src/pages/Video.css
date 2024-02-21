@@ -1,0 +1,57 @@
+/* Style.css */
+
+.header {
+  text-align: center;
+  background-color: #333;
+  color: white;
+  padding: 1em;
+}
+
+.content {
+  margin: 20px;
+}
+
+.subject-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.subject {
+  cursor: pointer;
+  margin: 0 10px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+}
+
+.subject:hover {
+  background-color: #0056b3;
+}
+
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Set to three columns */
+  gap: 40px;
+}
+
+.class-container {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.class-container h3 {
+  margin-top: 0;
+}
+
+iframe {
+  width: 100%; /* Set a fixed width or percentage based on your design */
+  max-width: 100%; /* Ensure the iframe doesn't exceed its container width */
+  height: 250px;
+  border: none;
+  border-radius: 4px;
+}
