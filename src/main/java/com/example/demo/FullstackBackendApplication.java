@@ -22,7 +22,7 @@ public class FullstackBackendApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-						.allowedOrigins("http://50.16.70.47:3000")
+						.allowedOrigins("http://3.108.220.24:3000")
 						.allowedMethods("GET", "POST", "PUT", "DELETE")
 						.allowedHeaders("*");
 			}
