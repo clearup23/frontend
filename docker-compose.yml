@@ -6,7 +6,7 @@ services:
     ports:
       - "8082:8082" # Map container port 8080 to host port 8080
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/lms_thbs
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/clearup
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: root
     depends_on:
