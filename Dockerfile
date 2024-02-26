@@ -6,6 +6,6 @@ run mvn -B dependency:go-offline dependency:resolve-plugins clean package -Dskip
 run mvn -o -B package -DskipTests
 from openjdk:17
 workdir /app
-copy --from=builder /app/target/BackEndSample-0.0.1-SNAPSHOT.jar ./app.jar
+copy --from=builder /app/target/fullstack-backend-0.0.1-SNAPSHOT.jar ./app.jar
 expose 8000
 cmd ["java","-jar","app.jar"]
