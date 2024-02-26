@@ -7,5 +7,5 @@ run mvn -o -B package -DskipTests
 from openjdk:17
 workdir /app
 copy --from=builder /app/target/fullstack-backend-0.0.1-SNAPSHOT.jar ./app.jar
-expose 8000
+expose 8082
 cmd ["java","-jar","app.jar"]
