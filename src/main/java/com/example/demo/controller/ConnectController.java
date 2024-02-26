@@ -23,8 +23,8 @@ import com.google.gson.reflect.TypeToken;
 
 @RestController
 public class ConnectController {
-    private static String CHAT_ENGINE_PROJECT_ID = "b4accbd5-c23d-4b0c-b346-5ee0815382e9";
-    private static String CHAT_ENGINE_PRIVATE_KEY = "88a441bd-0429-487d-8bdf-1dd4233fefb0";
+    private static String CHAT_ENGINE_PROJECT_ID = "b0e380bb-e7e9-4a3d-bd1a-652d3734c843";
+    private static String CHAT_ENGINE_PRIVATE_KEY = "d7d25660-280c-462e-a9ec-87d0d9892b84";
 
     @CrossOrigin
     @RequestMapping(path = "/chatlogin", method = RequestMethod.POST)
