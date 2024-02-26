@@ -33,7 +33,7 @@ import java.util.HashMap;
 //@CrossOrigin("http://localhost:3000")
 public class UserController {
 
-    private static String CHAT_ENGINE_PRIVATE_KEY = "fef79bf1-8f24-443e-807f-43d1fc01c228";
+    private static String CHAT_ENGINE_PRIVATE_KEY = "d7d25660-280c-462e-a9ec-87d0d9892b84";
     @Autowired
     private UserRepository userRepository;
 
